@@ -1,7 +1,17 @@
+# CS 410 Course Project
+
+
+
+
+
 # Team Member
 
 - Jiayuan Li ([jiayuan8@illinois.edu](mailto:jiayuan8@illinois.edu))
 - Zehang Qiu (zehangq2@illinois.edu)
+
+# Documents
+
+[Project Proposal](https://docs.google.com/document/d/1l9UlmzIY7VR5I6CWFQRCgICYJsGsAp5ze10a5lwxhyQ/edit?usp=sharing)
 
 
 
