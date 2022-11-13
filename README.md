@@ -13,7 +13,7 @@
 
 [Project Proposal](https://docs.google.com/document/d/1l9UlmzIY7VR5I6CWFQRCgICYJsGsAp5ze10a5lwxhyQ/edit?usp=sharing)
 
-
+[Progress Report](https://docs.google.com/document/d/1dCLi3i6aCVDZHSJ1iOMMe73Ni1C_DGR7ppbkQKTudck/edit?usp=sharing)
 
 # CourseProject
 
