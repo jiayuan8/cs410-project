@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+    mongo:
+        image: mongo:latest
+        volumes:
+            - "/srv/mongo/db:/data/db"
+        ports:
+            - "27017:27017"
+        restart: always
+    mainapp:
+        build:
+            context: .
+            dockerfile: ./docker/mainapp/Dockerfile
+        volumes:
+            - "/data:/data"
+            - "/srv/mainapp/artifacts:/srv/mainapp/artifacts"
+
+        ports:
+            - "8000:8000"
+        links:
+            - mongo
+        restart: always
+    nginx:
+        build: ./docker/nginx
+        volumes:
+            - "/srv/nginx/log:/var/log/nginx/log"
+        ports:
+            - "80:80"
+        links:
+            - mainapp
+        restart: always

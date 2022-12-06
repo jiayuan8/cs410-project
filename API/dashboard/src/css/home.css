@@ -1,0 +1,20 @@
+.page-root {
+    padding: 2%;
+    background-color: #fbfbfb;
+}
+
+.linked-account-content-item {
+    padding-bottom: 3%;
+}
+
+.dataset-upload-block {
+    padding-bottom: 5%;
+}
+
+.available-datasets-info-block {
+    padding-bottom: 5%;
+}
+
+.pending-uploads-info-block {
+    padding-bottom: 5%;
+}

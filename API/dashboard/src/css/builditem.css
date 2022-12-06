@@ -1,0 +1,13 @@
+.build-item-content {
+    padding: 1%;
+}
+
+.build-item-content:hover {
+    cursor: pointer;
+    background-color: lightgray !important;
+}
+
+.copy-git-url-div:hover {
+    color: black;
+    font-weight: 600;
+}

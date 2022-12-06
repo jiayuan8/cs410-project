@@ -1,0 +1,9 @@
+.projects-listing > * {
+    display: inline-block;
+    padding: 1%;
+    width: 25em;
+}
+
+.card {
+    height: 100%;
+}

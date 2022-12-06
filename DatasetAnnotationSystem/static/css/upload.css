@@ -1,0 +1,70 @@
+body{
+	background-color: #efefef;
+}
+
+.uploader-container{
+	margin-top: 100px;
+	background-color: #efefef;
+	width: 800px;
+	padding: 0px;
+}
+
+#dataset-input{
+	margin-left: 0px;
+	margin-right: : 0px;
+	margin-top: 40px;
+}
+
+#dataset-input label{
+	line-height: 40px;
+	font-size: 18px;
+}
+
+#dataset-input input{
+	height: 40px;
+	margin-left: 20px;
+	padding: 5px;
+}
+
+#dataset-privacy{
+	margin-left: 0px;
+	margin-right: : 0px;
+	margin-top: 20px;
+}
+
+#dataset-privacy label{
+	line-height: 40px;
+	font-size: 18px;
+}
+
+#dataset-privacy select{
+	height: 40px;
+	margin-left: 20px;
+	padding: 5px;
+}
+
+.files-container{
+	height: 300px;
+	margin-top: 20px;
+	background-color: #fff;
+	overflow: auto;
+	border: 2px solid #cccccc;
+	border-radius: 5px;
+	box-shadow: 1px 1px #cccccc;
+	padding: 0px;
+}
+
+.files-container p{
+	font-size: 24px;
+	line-height: 50px;
+	padding-left: 30px;
+	margin: 0;
+}
+
+.my-btn-group{
+	margin-top: 50px;
+}
+
+button{
+	font-size: 20px;
+}

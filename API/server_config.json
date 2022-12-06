@@ -1,0 +1,17 @@
+{
+    "development": {
+        "secret_key": "48heG4u3BptQg3vUh8CaZChpz0ya55ku",
+        "host_domain": "http://127.0.0.1:8000"
+       
+    },
+    "testing": {
+        "secret_key": "48heG4u3BptQg3vUh8CaZChpz0ya55ku",
+         "host_domain": "http://livedatalab.centralus.cloudapp.azure.com"
+        
+    },
+    "production": {
+        "secret_key": "48heG4u3BptQg3vUh8CaZChpz0ya55ku",
+         "host_domain": "http://livedatalab.centralus.cloudapp.azure.com"
+       
+    }
+}

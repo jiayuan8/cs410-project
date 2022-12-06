@@ -1,0 +1,49 @@
+.page-root {
+    padding: 2%;
+}
+
+.project-details-card {
+    padding-bottom: 3%;
+}
+
+.project-details-title {
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+.project-details-entry {
+    padding-bottom: 3%;
+}
+
+.project-details-entry > p {
+    padding-right: 3%;
+    display: inline-block;
+}
+
+.submission-details-title {
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+.submission-details-entry {
+    padding-bottom: 3%;
+}
+
+.submission-details-entry > p {
+    padding-right: 3%;
+    display: inline-block;
+}
+
+.logs-title {
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+.logs-div {
+    background-color: black;
+    color: white;
+}
+
+.log-lines {
+    padding: 1%;
+}

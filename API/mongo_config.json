@@ -1,0 +1,14 @@
+{
+    "development": {
+        "host": "mongodb://127.0.0.1:27017",
+        "db": "dev"
+    },
+    "testing": {
+        "host": "mongo:27017",
+        "db": "test"
+    },
+    "production": {
+        "host": "mongo:27017",
+        "db": "main"
+    }
+}

@@ -1,0 +1,36 @@
+{% extends "content_layout.html" %}
+
+{% block content %}
+ <div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+<div class="jumbotron">
+	<!-- css -->
+	<link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet"/>
+	<h2>Dataset Annotation System</h2>
+	<br>
+    
+    <div className="field">
+        <span>Already have an account? <a href="/">Sign in here</a></span>
+    </div>
+                
+    <form action="/signup/auth" method="post">
+       <input className="input" id="email" name="email" type="email" placeholder="Email" /> <br><br>
+                    
+        <input className="input" name="username" id="username" placeholder="Username" /> <br><br>
+                
+        <input className="input" id="password" name="password" type="password" placeholder="Password"/> <br><br>
+                    
+         <input className="input" id="confirmedPassword" type="password" placeholder="Confirm password" name="confirmedPassword" /><br><br><br>
+                 
+        <input type="submit" value="Sign Up">
+     </form>
+
+</div>
+
+{% endblock %}

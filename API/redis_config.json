@@ -1,0 +1,14 @@
+{
+    "development": {
+        "host": "redis"
+        
+    },
+    "production": {
+        "host": "redis"
+       
+    },
+    "testing": {
+        "host": "redis"
+       
+    }
+}

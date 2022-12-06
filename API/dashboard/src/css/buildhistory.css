@@ -1,0 +1,14 @@
+.build-history-item {
+    padding-bottom: 1%;
+}
+
+.build-history-title {
+    padding-left: 1%;
+}
+
+.build-items {
+    height: 72vh;
+    padding-left: 1%;
+    padding-right: 1%;
+    overflow-y: auto;
+}
