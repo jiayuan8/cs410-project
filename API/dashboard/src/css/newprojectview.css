@@ -7,3 +7,15 @@
 .form-title {
     padding-bottom: 3%;
 }
+
+
+
+.remove {
+    color: white;
+    background-color: rgb(192, 53, 53);
+}
+
+.remove:hover {
+    color: white;
+    background-color: rgb(187, 43, 43);
+}

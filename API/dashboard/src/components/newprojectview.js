@@ -19,6 +19,7 @@ export default class NewProjectView extends React.Component {
             projectReadme: null,
             projectCourse: null,
             autoRecommendMaterials: false,
+            requiredFiles: []
         }
     }
 
@@ -59,10 +60,28 @@ export default class NewProjectView extends React.Component {
         }
     }
 
+    addFormFields() {
+        this.setState(({
+            requiredFiles: [...this.state.requiredFiles, { filepath: "", filename: "" }]
+        }))
+    }
+
+    removeFormFields(i) {
+        let requiredFiles = this.state.requiredFiles;
+        requiredFiles.splice(i, 1);
+        this.setState({ requiredFiles });
+    }
+
     handleChange = (event) => {
         this.setState({
           [event.target.id]: event.target.value
         });
+    }
+
+    handleRequiredFileChange(i, e) {
+        let requiredFiles = this.state.requiredFiles;
+        requiredFiles[i][e.target.name] = e.target.value;
+        this.setState({ requiredFiles });
     }
 
     zipFileSelected = (event) => {
@@ -106,6 +125,7 @@ export default class NewProjectView extends React.Component {
         const projectZipFile = this.state.projectZipFile;
         const projectCourse = this.state.projectCourse;
         const autoRecommendMaterials = this.state.autoRecommendMaterials;
+        const requiredFiles = this.state.requiredFiles.filter(element => {return element.filename !== ''});
 
         if (projectName == null || projectShortDescription == null || projectReadme == null || projectZipFile == null) {
             this.setState({errorFromServer: "Error: No fields can be left empty."});
@@ -136,6 +156,7 @@ export default class NewProjectView extends React.Component {
         formData.append("projectShortDescription", projectShortDescription);
         formData.append("projectCourse", projectCourse);
         formData.append("autoRecommendMaterials", autoRecommendMaterials);
+        formData.append("requiredFiles", requiredFiles);
 
         xhr.open("POST", PROJECT_CONST.URL.CREATE);
         xhr.send(formData);
@@ -150,7 +171,7 @@ export default class NewProjectView extends React.Component {
         } else {
             pageContent = <div className="form-root">
                 <div className="form-title">
-                    <span className="title is-4">Create a New Project</span>
+                    <span className="title is-4">Create New Project</span>
                 </div>
                 <div className="field">
                     {this.renderErrorMessage()}
@@ -188,6 +209,25 @@ export default class NewProjectView extends React.Component {
                         </select>
                     </div>
                 </div>
+
+                <div className="field">
+                    <div>
+                        <label className="has-text-weight-semibold">Required Files for Grading</label>
+                    </div>
+                    {this.state.requiredFiles.map((element, index) => (
+                        <div className="form-inline" key={index}>
+                            <label>Path</label>
+                            <input className="input" type="text" name="filepath" placeholder="Default is project root directory" value={element.filepath || ""} onChange={e => this.handleRequiredFileChange(index, e)} />
+                            <label>File Name</label>
+                            <input className="input" type="text" name="filename" placeholder="i.e. two_sum.py" value={element.filename || ""} onChange={e => this.handleRequiredFileChange(index, e)} />
+                            <button type="button"  className="button remove" onClick={() => this.removeFormFields(index)}>Remove</button>
+                        </div>
+                      ))}
+                    <div className="button-section">
+                      <button className="button add" type="button" onClick={() => this.addFormFields()}>Add</button>
+                    </div>
+                </div>
+
                 <div className="field">
                     <label className="checkbox">
                         <input id="autoRecommendMaterials" type="checkbox" onChange={this.handleCheckboxChange} />
