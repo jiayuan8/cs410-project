@@ -20,6 +20,8 @@ def project_create(request):
     project_short_description = request.form["projectShortDescription"]
     project_course_name = None if request.form["projectCourse"] == "null" else request.form["projectCourse"]
     auto_recommend_materials = True if request.form["autoRecommendMaterials"] == "true" else False
+    has_required_files = True if len(request.form["requiredFiles"]) > 0 else False
+    required_files = request.form["requiredFiles"]
 
     if len(project_name.split(" ")) > 1:
         return json.dumps({"error": "Spaces are not allowed in the project name."}), 400
@@ -54,7 +56,9 @@ def project_create(request):
         "repo_url": project_data["repo_url"],
         "name": project_name,
         "course": project_course_id,
-        "auto_recommend_materials": auto_recommend_materials
+        "auto_recommend_materials": auto_recommend_materials,
+        "has_required_files": has_required_files,
+        "required_files": required_files
     }).inserted_id
 
     if auto_recommend_materials:
