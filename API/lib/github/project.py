@@ -14,8 +14,11 @@ def create_project(project_name, project_short_description, project_readme, proj
     projecthost_org_id = github_config["projecthost_org_id"]
     projecthost_api_key = github_config["projecthost_api_key"]
 
+    print(projecthost_api_base, projecthost_api_username, projecthost_org_id, projecthost_api_key)
+
     repo_data_key = f"/orgs/{projecthost_org_id}/repos"
     full_request_url = f"https://{projecthost_api_username}:{projecthost_api_key}@" + projecthost_api_base + repo_data_key
+
 
     # create repo
     payload = {
@@ -23,6 +26,7 @@ def create_project(project_name, project_short_description, project_readme, proj
         "description": project_short_description
     }
     resp = requests.post(full_request_url, data=json.dumps(payload))
+
     if resp.status_code != 201:
         return None, resp.text
     repo_data = resp.json()

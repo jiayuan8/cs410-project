@@ -1,6 +1,6 @@
 {
     "development": {
-        "host": "redis"
+        "host": "localhost"
         
     },
     "production": {

@@ -58,9 +58,17 @@ export default class Projectview extends React.Component {
                 let leaderboardContent = this.state.project.has_leaderboard ? (
                     <div>
                         <span>
-                            <a href={this.state.project.leaderboard_url}>Leaderboard</a>
+                            <a href={"" + this.state.project.repo_id}>Leaderboard</a>
                         </span>
                     </div>) : (<div></div>);
+                
+                let fileSubmissionContent = this.state.project.has_required_files ? (
+                    <div>
+                        <span>
+                            <a href={"/filesubmission/" + this.state.project.repo_id}>Submit File</a>
+                        </span>
+                    </div>) : (<div></div>);
+
                 let autoRecContent = this.state.project.has_recommended_materials ? (
                     <div>
                         <span className="is-size-5 has-text-weight-bold	">Recommended Learning Materials</span>
@@ -90,6 +98,9 @@ export default class Projectview extends React.Component {
                             <br></br>
                             <div>
                                 <span><a href={this.state.project.hosting_url}>Github</a></span>
+                            </div>
+                            <div>
+                                {fileSubmissionContent}
                             </div>
                             <div>
                                 {leaderboardContent}

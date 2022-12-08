@@ -125,7 +125,7 @@ export default class NewProjectView extends React.Component {
         const projectZipFile = this.state.projectZipFile;
         const projectCourse = this.state.projectCourse;
         const autoRecommendMaterials = this.state.autoRecommendMaterials;
-        const requiredFiles = this.state.requiredFiles.filter(element => {return element.filename !== ''});
+        const requiredFiles = JSON.stringify(this.state.requiredFiles.filter(element => {return element.filename !== ''}));
 
         if (projectName == null || projectShortDescription == null || projectReadme == null || projectZipFile == null) {
             this.setState({errorFromServer: "Error: No fields can be left empty."});

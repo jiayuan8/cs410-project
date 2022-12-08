@@ -20,8 +20,10 @@ def project_create(request):
     project_short_description = request.form["projectShortDescription"]
     project_course_name = None if request.form["projectCourse"] == "null" else request.form["projectCourse"]
     auto_recommend_materials = True if request.form["autoRecommendMaterials"] == "true" else False
-    has_required_files = True if len(request.form["requiredFiles"]) > 0 else False
-    required_files = request.form["requiredFiles"]
+    required_files = json.loads(request.form["requiredFiles"])
+    has_required_files = True if len(required_files) > 0 else False
+
+    print(has_required_files, required_files)
 
     if len(project_name.split(" ")) > 1:
         return json.dumps({"error": "Spaces are not allowed in the project name."}), 400
@@ -402,6 +404,12 @@ def _format_project(project):
             additional_fields["has_recommended_materials"] = True
             additional_fields["recommended_materials"] = grouped_materials
             additional_fields["recommended_materials_links"] = links
+
+        if project_metadata["has_required_files"]:
+            additional_fields["has_required_files"] = True
+            additional_fields["required_files"] = project_metadata["required_files"]
+        else:
+            additional_fields["has_required_files"] = False
 
     ## ** merges the dicts and the second dict overrides the first
     return {**{
