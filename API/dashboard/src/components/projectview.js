@@ -65,7 +65,7 @@ export default class Projectview extends React.Component {
                 let fileSubmissionContent = this.state.project.has_required_files ? (
                     <div>
                         <span>
-                            <a href={"/filesubmission/" + this.state.project.repo_id}>Submit File</a>
+                            <a href={"/project/filesubmission/" + this.state.project.repo_id}>Submit File</a>
                         </span>
                     </div>) : (<div></div>);
 

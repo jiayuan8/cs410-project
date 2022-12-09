@@ -6,18 +6,55 @@ import Navbar from "./navbar"
 
 import "../css/projectview.css"
 
-export default class Projectview extends React.Component {
+export default class FileSubmission extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
             loading: true,
             project: null,
+            errorFromServer: null,
         }
     }
 
     componentDidMount() {
         this.getProjectData();
+    }
+
+    renderErrorMessage = () => {
+        if (this.state.errorFromServer) {
+            return (
+                <div>
+                    <span className="has-text-danger">{this.state.errorFromServer}</span>
+                </div>
+            );
+        } else {
+            return <div></div>;
+        }
+    }
+
+    updateFileSelected = (event, index) => {
+        if (event.target.files.length > 0) {
+            let file = event.target.files[0];
+            let filepath = this.state.project.required_files[index].filepath
+            let filename = this.state.project.required_files[index].filename
+            
+            if (file.name !== filename) {
+                event.target.value = null
+                return 
+            }
+
+            this.state.fileSubmitted[index].fileName = filename
+            this.state.fileSubmitted[index].filePath = filepath
+            this.state.fileSubmitted[index].fileContent = file
+            console.log(this.state.project)
+        } else {
+            this.state.fileSubmitted[index].fileContent = null
+        }
+    }
+
+    handleSubmit = () => {
+
     }
 
     getProjectData = () => {
@@ -35,6 +72,12 @@ export default class Projectview extends React.Component {
                 let response = JSON.parse(xhr.responseText)
                 this.setState({errorFromServer: response.error, loading: false});
             }
+
+            this.setState({fileSubmitted: Array(this.state.project.required_files.length).fill({
+                filePath: null,
+                fileName: null,
+                fileContent: null
+            })})
         }.bind(this);
  
         xhr.open("GET", "/api/project?project_repo_id=" + this.props.match.params.project_repo_id);
@@ -111,8 +154,25 @@ export default class Projectview extends React.Component {
                             </div>
                         </div>
                         <div className="column is-two-thirds">
-                            <div className="build-history-wrapper">
-                                <BuildHistory specificRepoId={this.state.project.repo_id} history={this.props.history} />
+                            <div className="field">
+                                {this.renderErrorMessage()}
+                            </div>
+
+                            <div className="file-submission-wrapper">
+                                {this.state.project.required_files.map((fileInfo, index) => {
+                                    return (
+                                        <div key={index}>
+                                            <label className="has-text-weight-semibold">{fileInfo.filename}</label>
+                                            <input className="input" type="file" accept={fileInfo.filename} onChange={e => this.updateFileSelected(e, index)}/>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+
+                            <div className="field">
+                                <p className="control">
+                                    <button className="button is-success" onClick={this.handleSubmit}>Submit Files</button>
+                                </p>
                             </div>
                         </div>
                     </div>

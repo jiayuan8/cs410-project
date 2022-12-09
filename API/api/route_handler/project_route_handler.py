@@ -411,6 +411,8 @@ def _format_project(project):
         else:
             additional_fields["has_required_files"] = False
 
+        additional_fields["current_user"] = current_user.get_id()
+
     ## ** merges the dicts and the second dict overrides the first
     return {**{
         "repo_id": project["id"],

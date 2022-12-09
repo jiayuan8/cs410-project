@@ -7,6 +7,7 @@ from api.routes.project import project_blueprint
 from api.routes.webhook import webhook_blueprint
 from api.routes.lti import lti_blueprint
 from api.routes.mongodb import mongodb_blueprint
+from api.routes.filesubmission import file_submission_blueprint
 
 from app import app
 
@@ -20,6 +21,7 @@ app.register_blueprint(webhook_blueprint)
 app.register_blueprint(index_blueprint)
 app.register_blueprint(lti_blueprint)
 app.register_blueprint(mongodb_blueprint)
+app.register_blueprint(file_submission_blueprint)
 
 if __name__ == "__main__":
     app.run(debug=True)

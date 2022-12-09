@@ -12,6 +12,7 @@ import CoursesView from "./components/coursesview"
 import CourseJoinView from "./components/coursejoinview"
 import ProjectsView from "./components/projectsview"
 import ProjectView from "./components/projectview"
+import FileSubmission from './components/filesubmission';
 import ManageView from "./components/manageview"
 import NewProjectView from "./components/newprojectview"
 import NewCourseView from "./components/newcourseview"
@@ -74,6 +75,7 @@ ReactDOM.render(
         <Route path="/projects" component={RequireAuth(ProjectsView)} />
         <Route path="/manage" component={RequireAuth(ManageView)} />
         <Route path="/project/view/:project_repo_id" component={RequireAuth(ProjectView)} />
+        <Route path="/project/filesubmission/:project_repo_id" component={RequireAuth(FileSubmission)} />
         <Route path="/project/new" component={RequireAuth(NewProjectView)} />
         <Route path="/course/view/:course_id" component={RequireAuth(CourseView)} />
         <Route path="/courses" component={RequireAuth(CoursesView)} />
