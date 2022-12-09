@@ -17,7 +17,7 @@
 
 [Final Project Documentation](https://docs.google.com/document/d/1TjZRtTcSKai8-FoJBXCn-8FrsyAMLZ4kj19VBaRj58Y/edit?usp=sharing)
 
-[Presentation] (https://docs.google.com/presentation/d/1xgnjw_ba0RYCb86KmHnmBJEUEkM5PfqXKG40u3ZTnp8/edit?usp=sharing)
+[Presentation](https://docs.google.com/presentation/d/1xgnjw_ba0RYCb86KmHnmBJEUEkM5PfqXKG40u3ZTnp8/edit?usp=sharing)
 
 # CourseProject
 
